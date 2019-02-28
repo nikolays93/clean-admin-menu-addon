@@ -63,8 +63,8 @@ class Plugin
         require PLUGIN_DIR . '/include/utils.php';
 
         if( is_admin() ) {
-        	require_once(PLUGIN_DIR . '/include/options.php');
-        	require_once(PLUGIN_DIR . '/include/clean.php');
+            require_once(PLUGIN_DIR . '/include/options.php');
+            require_once(PLUGIN_DIR . '/include/clean.php');
         }
 
         // $autoload = PLUGIN_DIR . '/vendor/autoload.php';
@@ -74,35 +74,58 @@ class Plugin
 
         add_action( 'wbcr/factory/pages/impressive/before_form_save', function($form, $plugin, $this) {
 
-        	if( isset($_POST[self::get_option_name()]) ) {
-        		update_option(
-        			self::get_option_name(),
-        			json_decode( str_replace('\"', "\"", $_POST[self::get_option_name()]) )
-        		);
-        	}
+            if( isset($_POST[self::get_option_name()]) ) {
+                update_option(
+                    self::get_option_name(),
+                    json_decode( str_replace('\"', "\"", $_POST[self::get_option_name()]) )
+                );
+            }
 
         }, 10, 3 );
     }
 
-    static function activate() { add_option( self::get_option_name(), array() ); }
     static function uninstall() { delete_option( self::get_option_name() ); }
+    static function activate()
+    {
+        add_option( self::get_option_name(), array(
+            'menu'     => array('edit-comments.php', 'users.php', 'tools.php'),
+            'sub_menu' => array(
+                array(
+                    'parent' => 'edit.php?post_type=shop_order',
+                    'obj' => 'edit.php?post_type=shop_order',
+                ),
+                array(
+                    'parent' => 'edit.php?post_type=shop_order',
+                    'obj' => 'edit.php?post_type=shop_coupon',
+                ),
+                array(
+                    'parent' => 'edit.php?post_type=shop_order',
+                    'obj' => 'admin.php?page=wc-reports',
+                ),
+                array(
+                    'parent' => 'options-general.php',
+                    'obj' => 'options-discussion.php',
+                ),
+            ),
+        ) );
+    }
 
     static function _admin_assets()
     {
-    	wp_enqueue_style(  'ncam_clean_tools', Utils::get_plugin_url() . '/assets/admin.css', array(), self::$data['Version'] );
-    	wp_enqueue_script( 'ncam_clean_tools', Utils::get_plugin_url() . '/assets/admin.js', array( 'jquery' ), self::$data['Version'], true );
+        wp_enqueue_style(  'ncam_clean_tools', Utils::get_plugin_url() . '/assets/admin.css', array(), self::$data['Version'] );
+        wp_enqueue_script( 'ncam_clean_tools', Utils::get_plugin_url() . '/assets/admin.js', array( 'jquery' ), self::$data['Version'], true );
 
-    	$options = Utils::get(null, array());
-    	$options['option_name'] = self::get_option_name();
+        $options = Utils::get(null, array());
+        $options['option_name'] = self::get_option_name();
 
-    	wp_localize_script( 'ncam_clean_tools', 'ncam_options', $options );
+        wp_localize_script( 'ncam_clean_tools', 'ncam_options', $options );
     }
 }
 
 Plugin::define();
 
-// register_activation_hook( __FILE__, array( __NAMESPACE__ . '\Plugin', 'activate' ) );
-// register_uninstall_hook( __FILE__, array( __NAMESPACE__ . '\Plugin', 'uninstall' ) );
+register_activation_hook( __FILE__, array( __NAMESPACE__ . '\Plugin', 'activate' ) );
+register_uninstall_hook( __FILE__, array( __NAMESPACE__ . '\Plugin', 'uninstall' ) );
 // register_deactivation_hook( __FILE__, array( __NAMESPACE__ . '\Plugin', 'deactivate' ) );
 
 add_action( 'plugins_loaded', array( __NAMESPACE__ . '\Plugin', 'initialize' ), 10 );
