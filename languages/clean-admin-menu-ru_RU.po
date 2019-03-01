@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clearfy\n"
-"POT-Creation-Date: 2019-02-28 23:19+0400\n"
-"PO-Revision-Date: 2019-02-28 23:19+0400\n"
+"POT-Creation-Date: 2019-03-01 09:55+0400\n"
+"PO-Revision-Date: 2019-03-01 09:58+0400\n"
 "Last-Translator: alex.kovalevv@gmail.com <alex.kovalevv@gmail.com>\n"
 "Language-Team: Alex Kovalev <alex.kovalevv@gmail.com>\n"
 "Language: ru_RU\n"
@@ -20,52 +20,56 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: components\n"
 "X-Poedit-SearchPathExcluded-2: cache\n"
 
-#: admin/boot.php:19
-msgid "Clean wordpress admin menu"
-msgstr ""
+#: clean-admin-menu.php:52
+msgid "Clearfy: Clean admin menu"
+msgstr "Clearfy: Опрятная панель администратора"
 
-#: admin/options.php:24
+#: clean-admin-menu.php:53
+msgid ""
+"Helps for you to hide unused functionality and helps to get rid of annoying "
+"promo items."
+msgstr ""
+"Помогает скрыть неиспользуемый функционал и поможет избавиться от "
+"надоедливых промо пунктов основного меню."
+
+#: include/options.php:21
 msgid "Main admin menu"
 msgstr "Главная панель администратора"
 
-#: admin/options.php:24
+#: include/options.php:21
 msgid "In this group of settings, you can manage the main menu."
 msgstr ""
 "В этой группе настроек вы можете управлять главной панелью администратора."
 
-#: admin/options.php:31
+#: include/options.php:28
 msgid "Clean admin menu"
 msgstr "Очистить панель администратора"
 
-#: admin/options.php:33
+#: include/options.php:30
 msgid "Default"
 msgstr "По умолчанию"
 
-#: admin/options.php:34
+#: include/options.php:31
 msgid "For all users"
 msgstr "Для всех пользователей"
 
-#: admin/options.php:37
+#: include/options.php:34
 msgid "For all users except administrator"
 msgstr "Для всех, кроме администратора"
 
-#: admin/options.php:41
+#: include/options.php:38
 msgid ""
-"In some cases, you need to disable the floating top admin panel. You can "
-"disable this panel."
+"In some cases, you need to disable unused menu items. You can hide this."
 msgstr ""
+"В некоторых случаях вам необходимо отключить не используемые пункты "
+"основного меню. Вы можете скрыть их с помощью этой опции."
 
-#: admin/options.php:41
-msgid "Disable admin top bar."
-msgstr ""
-
-#: admin/options.php:49
+#: include/options.php:46
 msgid "Show menu tools"
 msgstr "Показать инструмент"
 
-#: clean-admin-menu.php:32
-msgid "Clearfy: clean admin menu"
-msgstr ""
+#~ msgid "Clean wordpress admin menu"
+#~ msgstr "Чистая административная панель"
 
 #~ msgid ""
 #~ "We found that you are use the (%s) plugin to change wp-login.php page "

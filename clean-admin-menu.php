@@ -5,8 +5,8 @@ namespace NikolayS93\CleanAdminMenu;
 /*
  * Plugin Name: Clearfy: Clean admin menu
  * Plugin URI: https://github.com/nikolays93
- * Description:
- * Version: 0.1
+ * Description: Helps for you to hide unused functionality and helps to get rid of annoying promo items.
+ * Version: 0.2
  * Author: NikolayS93
  * Author URI: https://vk.com/nikolays_93
  * Author EMAIL: NikolayS93@ya.ru
@@ -50,7 +50,7 @@ class Plugin
             define(__NAMESPACE__ . '\PLUGIN_DIR', __DIR__);
 
         self::$data['Name'] = __('Clearfy: Clean admin menu', DOMAIN);
-        self::$data['Description'] = __('@todo', DOMAIN);
+        self::$data['Description'] = __('Helps for you to hide unused functionality and helps to get rid of annoying promo items.', DOMAIN);
     }
 
     /**

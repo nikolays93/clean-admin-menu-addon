@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
-    console.log(ncam_options);
     var $clean_admin_menu = $('<input name="'+ ncam_options.option_name +'" type="hidden" />');
+    var menu_disabled = {};
 
     // Calc marked eyes
     function recordResult() {

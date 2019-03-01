@@ -35,7 +35,7 @@ function nikcam_additionally_form_options($form, $page)
 			)
 		),
 		'layout' => array('hint-type' => 'icon', 'hint-icon-color' => 'grey'),
-		'hint' => __('In some cases, you need to disable the floating top admin panel. You can disable this panel.', 'clean-admin-menu') . '<br><b>clean-admin-menu</b>: ' . __('Disable admin top bar.', 'clean-admin-menu'),
+		'hint' => __('In some cases, you need to disable unused menu items. You can hide this.', 'clean-admin-menu'),
 		'default' => 'enable',
 	);
 
